@@ -1,3 +1,5 @@
+Say("This should say something if AnHero.lua is actually ran :s")
+
 CommandPress:SetData("chatCmdAnHero", "false")
 timer.Remove("anHeroTimer")
 
