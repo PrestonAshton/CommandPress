@@ -10,7 +10,7 @@ function CommandPress:Me()
 	return LocalPlayer()
 end
 
-function CommandPress:boolToEnglish(toconvert)
+function CommandPress:BoolToEnglish(toconvert)
 	if (toconvert == false) then
 		return "No" end
 
@@ -26,7 +26,7 @@ function CommandPress:SplitText(text)
 	return args
 end
 
-function CommandPress:isAdmin(ply)
+function CommandPress:IsAdmin(ply)
 	if (ply:IsAdmin() or ply:IsSuperAdmin()) then
 		return true end
 

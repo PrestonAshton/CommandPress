@@ -5,7 +5,7 @@ CommandPress:Add("info", function(text)
   local PrintFunc
   local aloud = false
 
-  if (args[2] == "aloud") then
+  if (string.lower(args[2]) == "aloud") then
     PrintFunc = function(text) Say(text) end
     aloud = true
   else
@@ -21,7 +21,7 @@ CommandPress:Add("info", function(text)
       if first then
         commandList = commandList .. v[1]
       else
-        commandList = commandList .. "," .. v[1]
+        commandList = commandList .. ", " .. v[1]
       end
       first = false
     end
