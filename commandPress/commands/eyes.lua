@@ -69,9 +69,9 @@ addCommand("eyes", function(ply, text)
     end
 
     if IsValid(owner) then
-      CommandPress:Print("Owner: " .. owner:Nick() .. " / " .. owner:SteamID()
+      CommandPress:Print("Owner: " .. owner:Nick() .. " / " .. owner:SteamID())
     else
-      CommandPress:Print("Owner: " .. GetHostName()
+      CommandPress:Print("Owner: " .. GetHostName())
     end
   end
 end)
