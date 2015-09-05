@@ -25,7 +25,7 @@ function CommandPress:isAdmin(ply)
 end
 
 function CommandPress:Print(text)
-	me:PrintMessage(HUD_PRINTTALK, text)
+	CommandPress:Me():PrintMessage(HUD_PRINTTALK, text)
 end
 
 function CommandPress:GetData(key, defualt, ply)
