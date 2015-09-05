@@ -14,7 +14,7 @@ CommandPress:Add("playerinfo", function(text)
   local playerInfoIntro = "Player info for " .. targ:Name() .. ":"
 
   if (IsValid(targ)) then
-    if (aloud)
+    if (aloud) then
       Say(playerInfoIntro)
       local playerInfo = ""
       playerInfo = playerInfo .. " | Name: " .. targ:Nick() .. " | "
