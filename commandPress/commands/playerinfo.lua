@@ -5,8 +5,10 @@ CommandPress:Add("playerinfo", function(text)
   local PrintFunc
   local aloud = false
 
-  if (string.lower(args[3]) == "aloud") then
-    aloud = true
+  if (args[3] != nil) then
+    if (string.lower(args[3]) == "aloud") then
+      aloud = true
+    end
   end
 
   local targ = CommandPress:ResolveName(args[2])
