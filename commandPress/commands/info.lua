@@ -25,7 +25,7 @@ CommandPress:Add("info", function(text)
       end
       first = false
     end
-    commandList .. "."
+    commandList = commandList .. "."
     PrintFunc(commandList)
   else
     for k,v in pairs(CommandPress.Commands) do
