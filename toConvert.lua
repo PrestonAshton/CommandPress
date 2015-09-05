@@ -1,32 +1,3 @@
-
-
-me:SetPData("chatCmdWallHax",  "false")
-hook.Remove("PreDrawHalos", "chatCmdWallHaxHook")
-
-
-
-addCommand("wallhax", function(ply, text)
-	if ply:GetPData("chatCmdWallHax", "false") == "false" then
-		me:PrintMessage(HUD_PRINTTALK, "Über Hax enabled!")
-		hook.Add( "PreDrawHalos", "chatCmdWallHaxHook", function()
-			halo.Add( player.GetAll(), Color( 255, 0, 0 ), 0, 0, 2, true, true )
-		end )
-		ply:SetPData("chatCmdWallHax", "true")
-	else
-		me:PrintMessage(HUD_PRINTTALK, "Über Hax disabled!")
-		hook.Remove("PreDrawHalos", "chatCmdWallHaxHook")
-		ply:SetPData("chatCmdWallHax", "false")
-	end
-end)
-
-addCommand("info", function(ply, text)
-	prnt("CommandPress by Preston - Version " .. version)
-	prnt("Currently loaded commands: ")
-	for k,v in pairs(commands) do
-		prnt(v[1])
-	end
-end)
-
 addCommand("infoaloud", function(ply, text)
 	Say("CommandPress by Preston - Version " .. version)
 	Say("Currently loaded commands: ")

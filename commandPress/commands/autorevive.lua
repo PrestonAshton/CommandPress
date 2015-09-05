@@ -19,6 +19,8 @@ CommandPress:Add("autorevive", function(text)
 	end
 end)
 
+Setup()
+
 hook.Add("CommandPressCleanUp", "CleanAutoRevive", function()
   Setup()
 end)

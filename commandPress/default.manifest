@@ -5,3 +5,5 @@ commands/anhero.lua
 commands/update.lua
 commands/autoammo.lua
 commands/autorevive.lua
+commands/wallhax.lua
+commands/info.lua

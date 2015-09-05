@@ -17,6 +17,15 @@ function CommandPress:boolToEnglish(toconvert)
 	return "Yes"
 end
 
+function CommandPress:SplitText(text)
+	local args = {}
+	for word in text:gmatch("%w+") do
+		table.insert(args, word)
+	end
+
+	return args
+end
+
 function CommandPress:isAdmin(ply)
 	if (ply:IsAdmin() or ply:IsSuperAdmin()) then
 		return true end

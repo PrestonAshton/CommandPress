@@ -22,6 +22,8 @@ CommandPress:Add("autoammo", function(text)
 	end
 end)
 
+Setup()
+
 hook.Add("CommandPressCleanUp", "CleanAutoAmmo", function()
   Setup()
 end)
