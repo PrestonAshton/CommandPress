@@ -1,21 +1,21 @@
-CommandPress:me():SetPData("chatCmdAnnoyOn",  "false")
+CommandPress:SetData("chatCmdAnnoyOn",  "false")
 
-addCommand("annoy", function(ply, text)
-	if  CommandPress:me():GetPData("chatCmdAnnoyOn", "false") == "false" then
-		local targ = resolveName(string.sub(text,8))
+CommandPress:Add("annoy", function(ply, text)
+	if CommandPress:GetData("chatCmdAnnoyOn", "false") == "false" then
+		local targ = CommandPress:ResolveName(string.sub(text,8))
 
 		if IsValid(targ) and targ:IsPlayer() then
-			prnt("Now annoying: " .. targ:Nick())
-			CommandPress:me():SetPData("chatCmdAnnoyAnnoying", targ:Nick())
+			CommandPress:Print("Now annoying: " .. targ:Nick())
+			CommandPress:SetData("chatCmdAnnoyAnnoying", targ:Nick())
 			timer.Create("annoyTimer", 0.5, 0,function()
 				CommandPress:me():ConCommand("aowl goto _"..targ:EntIndex())
 			end)
-			CommandPress:me():SetPData("chatCmdAnnoyOn", "true")
+			CommandPress:SetData("chatCmdAnnoyOn", "true")
 		end
 	else
-		prnt("Stopped getting on the nerves of: " .. ply:GetPData("chatCmdAnnoyAnnoying"))
-		CommandPress:me():SetPData("chatCmdAnnoyAnnoying", "")
+		CommandPress:Print("Stopped getting on the nerves of: " .. CommandPress:GetData("chatCmdAnnoyAnnoying"))
+		CommandPress:SetData("chatCmdAnnoyAnnoying", "")
 		timer.Remove("annoyTimer")
-		CommandPress:me():SetPData("chatCmdAnnoyOn", "false")
+		CommandPress:SetData("chatCmdAnnoyOn", "false")
 	end
 end)

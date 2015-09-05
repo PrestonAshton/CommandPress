@@ -1,12 +1,10 @@
 
 
-/*me:SetPData("chatCmdWallHax",  "false")
-me:SetPData("chatCmdAnHero",   "false")
+me:SetPData("chatCmdWallHax",  "false")
 me:SetPData("chatCmdAutoAmmo", "false")
 me:SetPData("chatCmdAutoRevive", "false")
 
 timer.Remove("annoyTimer")
-timer.Remove("anHeroTimer")
 hook.Remove("Think", "autoAmmoTimer")
 hook.Remove("Think", "autoReviveTimer")
 hook.Remove("PreDrawHalos", "chatCmdWallHaxHook")
@@ -170,4 +168,3 @@ addCommand("eyes", function(ply, text)
  		prnt(ply, "SteamID: " .. ent:SteamID() .. " | " .. ent:SteamID64())
  	end
 end)
-*/
