@@ -6,8 +6,9 @@ end
 CommandPress:Add("wallhax", function(ply, text)
 	if CommandPress:GetData("chatCmdWallHax", "false") == "false" then
 		CommandPress:Print(HUD_PRINTTALK, "Über Hax enabled!")
+    local haloColour = Color( 255, 0, 0 )
 		hook.Add( "PreDrawHalos", "chatCmdWallHaxHook", function()
-			halo.Add( player.GetAll(), Color( 255, 0, 0 ), 0, 0, 2, true, true )
+			halo.Add( player.GetAll(), haloColour, 0, 0, 2, true, true )
 		end )
 		CommandPress:SetData("chatCmdWallHax", "true")
 	else
