@@ -10,7 +10,7 @@ CommandPress:Add("info", function(text)
     PrintFunc = function(text) CommandPress:Print(text) end
   end
 
-	PrintFunc("CommandPress by Preston - Version " .. version)
+	PrintFunc("CommandPress by Preston - Version " .. CommandPress.Version)
 	PrintFunc("Currently loaded commands: ")
 	for k,v in pairs(commands) do
 		PrintFunc(v[1])
