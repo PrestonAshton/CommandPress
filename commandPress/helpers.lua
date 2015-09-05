@@ -6,6 +6,10 @@ function CommandPress:newLine()
 	return "\n"
 end
 
+function CommandPress:me()
+	return LocalPlayer()
+end
+
 function CommandPress:boolToEnglish(toconvert)
 	if (toconvert == false) then
 		return "No" end

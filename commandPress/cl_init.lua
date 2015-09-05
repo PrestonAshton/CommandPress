@@ -1,4 +1,4 @@
-me:SetPData("chatCmdAnnoyOn",  "false")
+CommandPress:me():SetPData("chatCmdAnnoyOn",  "false")
 
 CommandPress:add("annoy", function(ply, text)
 	if  ply:GetPData("chatCmdAnnoyOn", "false") == "false" then
