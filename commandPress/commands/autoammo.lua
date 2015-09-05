@@ -1,4 +1,3 @@
-
 local function Setup()
   CommandPress:SetData("chatCmdAutoAmmo", "false")
   hook.Remove("Think", "autoAmmoTimer")
@@ -18,7 +17,7 @@ CommandPress:Add("autoammo", function(ply, text)
 	else
 		CommandPress:Print("Automatic ammo giving disabled!")
 		hook.Remove("Tick", "autoAmmoTimer")
-		CommandPress:SetData("chatCmdAutoAmmo", false)
+		CommandPress:SetData("chatCmdAutoAmmo", "false")
 	end
 end)
 
