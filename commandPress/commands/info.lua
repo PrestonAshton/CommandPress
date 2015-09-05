@@ -1,4 +1,4 @@
-CommandPress:Add("info", function(ply, text)
+CommandPress:Add("info", function(text)
 
   local args = CommandPress:SplitText(text)
 
