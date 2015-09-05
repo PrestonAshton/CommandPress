@@ -1,45 +1,11 @@
 
 
 me:SetPData("chatCmdWallHax",  "false")
-me:SetPData("chatCmdAutoAmmo", "false")
 me:SetPData("chatCmdAutoRevive", "false")
 
 timer.Remove("annoyTimer")
-hook.Remove("Think", "autoAmmoTimer")
 hook.Remove("Think", "autoReviveTimer")
 hook.Remove("PreDrawHalos", "chatCmdWallHaxHook")
-
-addCommand("anhero", function(ply, text)
-	if ply:GetPData("chatCmdAnHero", "false") == "false" then
-		prnt("You are an hero")
-		timer.Create("anHeroTimer", 0.5, 0, function()
-			me:ConCommand("aowl suicide")
-		end)
-		ply:SetPData("chatCmdAnHero", "true")
-	else
-		prnt("You are no longer an hero")
-		timer.Remove("anHeroTimer")
-		ply:SetPData("chatCmdAnHero", "false")
-	end
-end)
-
-addCommand("autoammo", function(ply, text)
-	if ply:GetPData("chatCmdAutoAmmo", "false") == "false" then
-		prnt("Automatic ammo giving enabled!")
-		hook.Add("Think", "autoAmmoTimer", function()
-			local wep = ply:GetActiveWeapon()
-			if (!IsValid(wep)) then return end
-
-			if (ply:GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
-				ply:ConCommand("aowl giveammo") end
-		end)
-		ply:SetPData("chatCmdAutoAmmo", true)
-	else
-		prnt("Automatic ammo giving disabled!")
-		hook.Remove("Tick", "autoAmmoTimer")
-		ply:SetPData("chatCmdAutoAmmo", false)
-	end
-end)
 
 addCommand("autorevive", function(ply, text)
 	if ply:GetPData("chatCmdAutoRevive", "false") == "false" then
