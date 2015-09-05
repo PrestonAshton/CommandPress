@@ -6,12 +6,13 @@ end
 CommandPress:Add("autoammo", function(text)
 	if CommandPress:GetData("chatCmdAutoAmmo", "false") == "false" then
 		CommandPress:Print("Automatic ammo giving enabled!")
+    local me = CommandPress:Me();
 		hook.Add("Think", "autoAmmoTimer", function()
-			local wep = CommandPress.Me:GetActiveWeapon()
-			if (!IsValid(CommandPress.Me)) then return end
+			local wep = me:GetActiveWeapon()
+			if (!IsValid(me)) then return end
 
-			if (CommandPress.Me:GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
-				CommandPress.Me:ConCommand("aowl giveammo") end
+			if (me:GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
+				me:ConCommand("aowl giveammo") end
 		end)
 		CommandPress:SetData("chatCmdAutoAmmo", "true")
 	else

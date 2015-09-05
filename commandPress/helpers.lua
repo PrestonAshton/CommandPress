@@ -7,7 +7,7 @@ function CommandPress:newLine()
 end
 
 function CommandPress:Me()
-	return CommandPress.Me
+	return LocalPlayer()
 end
 
 function CommandPress:BoolToEnglish(toconvert)
