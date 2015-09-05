@@ -3,8 +3,11 @@ function CommandPressSetup()
   CommandPress = {
     Commands = {},
     Helpers = {}, Version = 0.4,
-    Me = LocalPlayer(),
-    BaseURL = "https://raw.githubusercontent.com/PrestonAshton/CommandPress/master/commandPress/" }
+    BaseURL = "https://raw.githubusercontent.com/PrestonAshton/CommandPress/master/commandPress/",
+    Implementation = {
+      Me = nil
+    },
+   }
 
   me:PrintMessage(HUD_PRINTTALK, "Initialising CommandPress by Preston - Version " .. CommandPress.Version)
 

@@ -7,7 +7,11 @@ function CommandPress:newLine()
 end
 
 function CommandPress:Me()
-	return LocalPlayer()
+	if (CommandPress.Implementation.Me == nil) then
+		CommandPress.Implementation.Me = LocalPlayer()
+	end
+
+	return CommandPress.Implementation.Me
 end
 
 function CommandPress:BoolToEnglish(toconvert)
