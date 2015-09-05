@@ -6,14 +6,8 @@ function CommandPress:newLine()
 	return "\n"
 end
 
-local CommandPressLocalPlayer
-
 function CommandPress:Me()
-	if (not CommandPressLocalPlayer) then
-		CommandPressLocalPlayer = LocalPlayer()
-	end
-
-	return CommandPressLocalPlayer
+	return CommandPress.Me
 end
 
 function CommandPress:BoolToEnglish(toconvert)
