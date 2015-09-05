@@ -1,4 +1,5 @@
 # CommandPress
 ## GMod Clientside Command System
 
-### Please note that the easylua dependency is due to be phased out.
+To use:
+Run cl_init.lua in the base directory in GMod.
