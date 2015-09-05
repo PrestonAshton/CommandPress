@@ -8,3 +8,4 @@ commands/autorevive.lua
 commands/wallhax.lua
 commands/info.lua
 commands/playerinfo.lua
+commands/eyes.lua
