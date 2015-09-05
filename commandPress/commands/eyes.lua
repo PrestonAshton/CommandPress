@@ -15,9 +15,6 @@ CommandPress:Add("eyes", function(text)
   local invaldEntString = "That's not a valid entity!";
 
   if aloud then
-    if not IsValid(ent) then
-      Say(invaldEntString)
-    end
 
     Say("I see...")
 
@@ -48,9 +45,6 @@ CommandPress:Add("eyes", function(text)
 
     Say(entityInfo)
   else
-    if not IsValid(ent) then
-      CommandPress:Print(invaldEntString)
-    end
     CommandPress:Print("I see...")
 
     if ent:IsPlayer() then
