@@ -45,9 +45,9 @@ end
 nextIndex = 1
 
 function CommandPress:Add(identifier, callback)
-	commands[identifier] = {identifier, callback}
+	CommandPress:commands[identifier] = {identifier, callback}
 	concommand.Add("cmdPress_" .. identifier, function(ply, _, __, args)
 		local text = "!" .. identifier .. " " .. args;
-		commands[identifier][2](ply, text)
+		CommandPress:Commands[identifier][2](ply, text)
 	end)
 end

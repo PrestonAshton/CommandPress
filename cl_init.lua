@@ -12,10 +12,10 @@ http.Fetch(CommandPress.BaseURL .. "default.manifest", function(body, len, heade
 					RunStringEx(body, "CommandPress - " .. lines[i]) end
 			end,
 			function (error)
-				-- Error Handling
+				Say(error)
 			end)
 	end
 end,
 function(error)
-	-- Error Handling
+	Say(error)
 end)
