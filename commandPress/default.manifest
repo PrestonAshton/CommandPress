@@ -1,3 +1,4 @@
 helpers.lua
 cl_init.lua
 commands/annoy.lua
+commands/anhero.lua
