@@ -1,6 +1,6 @@
 function CommandPressSetup()
 
-  CommandPress = { Commands = {}, Helpers = {}, Version = 0.4, BaseURL = "https://www.prestonashtons.work/CommandPress/commandPress/" }
+  CommandPress = { Commands = {}, Helpers = {}, Version = 0.4, BaseURL = "https://raw.githubusercontent.com/PrestonAshton/CommandPress/master/commandPress/" }
 
   me:PrintMessage(HUD_PRINTTALK, "Initialising CommandPress by Preston - Version " .. CommandPress.Version)
 
@@ -9,7 +9,7 @@ function CommandPressSetup()
   	for i = 1,#lines do
   	  http.Fetch(CommandPress.BaseURL .. lines[i],
   		    function(body, len, headers, code)
-  			    RunStringEx(body, "CommandPress - " .. lines[i])
+  			    RunStringEx(body, "CommandPress - " .. CommandPress.BaseURL .. lines[i])
   	     end,
   		   function (error)
   		     Say(error)
