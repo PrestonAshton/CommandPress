@@ -1,7 +1,9 @@
-Say("This should say something if AnHero.lua is actually ran :s")
+local function Setup()
+  CommandPress:SetData("chatCmdAnHero", "false")
+  timer.Remove("anHeroTimer")
+end
 
-CommandPress:SetData("chatCmdAnHero", "false")
-timer.Remove("anHeroTimer")
+Setup()
 
 CommandPress:Add("anhero", function(ply, text)
 	if CommandPress:GetData("chatCmdAnHero", "false") == "false" then
@@ -15,4 +17,8 @@ CommandPress:Add("anhero", function(ply, text)
 		timer.Remove("anHeroTimer")
 		CommandPress:SetData("chatCmdAnHero", "false")
 	end
+end)
+
+hook.Add("CommandPressCleanUp", "CleanAnHero", function()
+  Setup()
 end)

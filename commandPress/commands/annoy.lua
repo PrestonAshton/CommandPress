@@ -1,4 +1,8 @@
-CommandPress:SetData("chatCmdAnnoyOn",  "false")
+local function Setup()
+	CommandPress:SetData("chatCmdAnnoyOn",  "false")
+end
+
+Setup()
 
 CommandPress:Add("annoy", function(ply, text)
 	if CommandPress:GetData("chatCmdAnnoyOn", "false") == "false" then
@@ -18,4 +22,8 @@ CommandPress:Add("annoy", function(ply, text)
 		timer.Remove("annoyTimer")
 		CommandPress:SetData("chatCmdAnnoyOn", "false")
 	end
+end)
+
+hook.Add("CommandPressCleanUp", "CleanAnnoy", function()
+  Setup()
 end)

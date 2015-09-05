@@ -24,7 +24,7 @@ function CommandPress:isAdmin(ply)
 	return false
 end
 
-function CommandPress:print(text)
+function CommandPress:Print(text)
 	me:PrintMessage(HUD_PRINTTALK, text)
 end
 
