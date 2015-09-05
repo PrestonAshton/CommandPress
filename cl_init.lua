@@ -8,7 +8,8 @@ http.Fetch(CommandPress.BaseURL .. "default.manifest", function(body, len, heade
 
 		http.Fetch(CommandPress.BaseURL .. lines[i],
 			function(body, len, headers, code)
-				RunStringEx(body, "CommandPress - " .. lines[i])
+				if not body == "" then
+					RunStringEx(body, "CommandPress - " .. lines[i]) end
 			end,
 			function (error)
 				-- Error Handling
