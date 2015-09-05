@@ -5,9 +5,8 @@ addCommand("annoy", function(ply, text)
 		local targ = resolveName(string.sub(text,8))
 
 		if IsValid(targ) and targ:IsPlayer() then
-			if (IsValid(targ:Nick())) then
-				prnt("Now annoying: " .. targ:Nick())
-				CommandPress:me():SetPData("chatCmdAnnoyAnnoying", targ:Nick()) end
+			prnt("Now annoying: " .. targ:Nick())
+			CommandPress:me():SetPData("chatCmdAnnoyAnnoying", targ:Nick())
 			timer.Create("annoyTimer", 0.5, 0,function()
 				CommandPress:me():ConCommand("aowl goto _"..targ:EntIndex())
 			end)
