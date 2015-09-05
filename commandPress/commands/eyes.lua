@@ -1,5 +1,5 @@
-addCommand("eyes", function(ply, text)
-	local ent = ply:GetEyeTrace().Entity;
+CommandPress:Add("eyes", function(text)
+	local ent = CommandPress:Me():GetEyeTrace().Entity;
 	local owner = ent:CPPIGetOwner()
 
   local args = CommandPress:SplitText(text)
