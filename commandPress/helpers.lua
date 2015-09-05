@@ -6,7 +6,7 @@ function CommandPress:newLine()
 	return "\n"
 end
 
-function CommandPress:me()
+function CommandPress:Me()
 	return LocalPlayer()
 end
 
@@ -30,14 +30,14 @@ end
 
 function CommandPress:GetData(key, defualt, ply)
 	if not ply then
-		ply = CommandPress:me() end
+		ply = CommandPress:Me() end
 
 	ply:GetPData(key, default)
 end
 
 function CommandPress:SetData(key, value, ply)
 	if not ply then
-		ply = CommandPress:me() end
+		ply = CommandPress:Me() end
 
 	ply:SetPData(key, value)
 end
@@ -45,9 +45,9 @@ end
 nextIndex = 1
 
 function CommandPress:Add(identifier, callback)
-	CommandPress:Commands[identifier] = {identifier, callback}
+	CommandPress.Commands[identifier] = {identifier, callback}
 	concommand.Add("cmdPress_" .. identifier, function(ply, _, __, args)
 		local text = "!" .. identifier .. " " .. args;
-		CommandPress:Commands[identifier][2](ply, text)
+		CommandPress.Commands[identifier][2](ply, text)
 	end)
 end

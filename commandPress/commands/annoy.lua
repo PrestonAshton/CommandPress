@@ -8,7 +8,7 @@ CommandPress:Add("annoy", function(ply, text)
 			CommandPress:Print("Now annoying: " .. targ:Nick())
 			CommandPress:SetData("chatCmdAnnoyAnnoying", targ:Nick())
 			timer.Create("annoyTimer", 0.5, 0,function()
-				CommandPress:me():ConCommand("aowl goto _"..targ:EntIndex())
+				CommandPress:Me():ConCommand("aowl goto _"..targ:EntIndex())
 			end)
 			CommandPress:SetData("chatCmdAnnoyOn", "true")
 		end
