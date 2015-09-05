@@ -32,7 +32,7 @@ function CommandPress:GetData(key, defualt, ply)
 	if not ply then
 		ply = CommandPress:Me() end
 
-	ply:GetPData(key, default)
+	return ply:GetPData(key, default)
 end
 
 function CommandPress:SetData(key, value, ply)
