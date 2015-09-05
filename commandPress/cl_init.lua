@@ -1,6 +1,11 @@
-hook.Add("PlayerSay", "textHook", function(ply, text)
-	local args = {};
-	for word in text:gmatch("%w+") do table.insert(args, word) end
+hook.Add("PlayerSay", "commandRecogniserHook", function(ply, text)
+	local args = {}
+	local nextIndex = 1
+
+	for word in text:gmatch("%w+") do
+		args[nextIndex] = word
+		nextIndex = nextIndex + 1
+	end
 
 	if (text:sub(1, 1) == "!" or text:sub(1, 1) == "/")  then
 		if (CommandPress.Commands[args[1]:sub(1, args[1]:len())]) then

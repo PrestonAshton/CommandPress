@@ -6,8 +6,14 @@ function CommandPress:newLine()
 	return "\n"
 end
 
+local CommandPressLocalPlayer
+
 function CommandPress:Me()
-	return LocalPlayer()
+	if (not CommandPressLocalPlayer) then
+		CommandPressLocalPlayer = LocalPlayer()
+	end
+
+	return CommandPressLocalPlayer
 end
 
 function CommandPress:BoolToEnglish(toconvert)
@@ -27,7 +33,7 @@ function CommandPress:SplitText(text)
 end
 
 function CommandPress:IsAdmin(ply)
-	if (ply:IsAdmin() or ply:IsSuperAdmin()) then
+	if (ply:IsAdmin()) then
 		return true end
 
 	return false
@@ -44,8 +50,6 @@ end
 function CommandPress:SetData(key, value, ply)
 	CommandPress:Me():SetPData(key, value)
 end
-
-nextIndex = 1
 
 function CommandPress:Add(identifier, callback)
 	CommandPress.Commands[identifier] = {identifier, callback}
