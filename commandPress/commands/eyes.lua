@@ -6,8 +6,10 @@ CommandPress:Add("eyes", function(text)
 
   local aloud = false
 
-  if (string.lower(args[2]) == "aloud") then
-    aloud = true
+  if (args[2] != nil) then
+    if (string.lower(args[2]) == "aloud") then
+      aloud = true
+    end
   end
 
   local invaldEntString = "That's not a valid entity!";
