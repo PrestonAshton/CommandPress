@@ -3,20 +3,21 @@ local function Setup()
   hook.Remove("Think", "autoAmmoTimer")
 end
 
-CommandPress:Add("autoammo", function(ply, text)
+CommandPress:Add("autoammo", function(text)
 	if CommandPress:GetData("chatCmdAutoAmmo", "false") == "false" then
 		CommandPress:Print("Automatic ammo giving enabled!")
+    local me = CommandPress:Me();
 		hook.Add("Think", "autoAmmoTimer", function()
-			local wep = ply:GetActiveWeapon()
-			if (!IsValid(wep)) then return end
+			local wep = me:GetActiveWeapon()
+			if (!IsValid(me)) then return end
 
-			if (ply:GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
-				ply:ConCommand("aowl giveammo") end
+			if (me:GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
+				me:ConCommand("aowl giveammo") end
 		end)
 		CommandPress:SetData("chatCmdAutoAmmo", "true")
 	else
 		CommandPress:Print("Automatic ammo giving disabled!")
-		hook.Remove("Tick", "autoAmmoTimer")
+		hook.Remove("Think", "autoAmmoTimer")
 		CommandPress:SetData("chatCmdAutoAmmo", "false")
 	end
 end)

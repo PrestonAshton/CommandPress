@@ -7,7 +7,7 @@ hook.Add("PlayerSay", "textHook", function(ply, text)
 			local command = CommandPress.Commands[args[1]:sub(1, args[1]:len())]
 
 			if (command[2]) then
-				timer.Simple(0, function() command[2](ply, text) end );
+				timer.Simple(0, function() command[2](text) end );
 			end
 		end
 	end

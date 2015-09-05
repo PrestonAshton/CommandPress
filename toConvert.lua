@@ -1,26 +1,9 @@
 
 
 me:SetPData("chatCmdWallHax",  "false")
-me:SetPData("chatCmdAutoRevive", "false")
-
-timer.Remove("annoyTimer")
-hook.Remove("Think", "autoReviveTimer")
 hook.Remove("PreDrawHalos", "chatCmdWallHaxHook")
 
-addCommand("autorevive", function(ply, text)
-	if ply:GetPData("chatCmdAutoRevive", "false") == "false" then
-		ply:PrintMessage(HUD_PRINTTALK, "Automatic revive enabled!")
-		hook.Add("Think", "autoReviveTimer", function()
-			if (!ply:Alive()) then
-				ply:ConCommand("aowl revive") end
-		end)
-		ply:SetPData("chatCmdAutoRevive", true)
-	else
-		ply:PrintMessage(HUD_PRINTTALK, "Automatic revive disabled!")
-		hook.Remove("Tick", "autoReviveTimer")
-		ply:SetPData("chatCmdAutoRevive", false)
-	end
-end)
+
 
 addCommand("wallhax", function(ply, text)
 	if ply:GetPData("chatCmdWallHax", "false") == "false" then

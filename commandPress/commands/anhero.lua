@@ -5,19 +5,21 @@ end
 
 Setup()
 
-CommandPress:Add("anhero", function(ply, text)
+CommandPress:Add("anhero", function(text)
 	if CommandPress:GetData("chatCmdAnHero", "false") == "false" then
 		CommandPress:Print("You are an hero")
 
+    local me = CommandPress:Me();
+
 		hook.Add("Think", "anHeroHook", function()
-			CommandPress:Me():ConCommand("aowl suicide")
+			me:ConCommand("aowl suicide")
 		end)
 
 		CommandPress:SetData("chatCmdAnHero", "true")
 	else
 		CommandPress:Print("You are no longer an hero")
 
-		timer.Remove("Think", "anHeroHook")
+		hook.Remove("Think", "anHeroHook")
 		CommandPress:SetData("chatCmdAnHero", "false")
 	end
 end)
