@@ -28,6 +28,7 @@ addCommand("eyes", function(ply, text)
       entityInfo = entityInfo .. " | Alive: " .. CommandPress:BoolToEnglish(targ:Alive()) .. " | "
       entityInfo = entityInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)) .. " | "
       entityInfo = entityInfo .. " | SteamID: " .. ttarg:SteamID() .. " / " .. targ:SteamID64() .. " | "
+      Say(entityInfo)
       return
     end
 
@@ -42,6 +43,8 @@ addCommand("eyes", function(ply, text)
     else
       entityInfo = entityInfo .. " | Owner: " .. GetHostName() .. " | "
     end
+
+    Say(entityInfo)
   else
     if not IsValid(ent) then
       CommandPress:Print(invaldEntString)
