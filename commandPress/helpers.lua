@@ -28,18 +28,12 @@ function CommandPress:Print(text)
 	CommandPress:Me():PrintMessage(HUD_PRINTTALK, text)
 end
 
-function CommandPress:GetData(key, defualt, ply)
-	if not ply then
-		ply = CommandPress:Me() end
-
-	return ply:GetPData(key, default)
+function CommandPress:GetData(key, defualt)
+	return CommandPress:Me():GetPData(key, default)
 end
 
 function CommandPress:SetData(key, value, ply)
-	if not ply then
-		ply = CommandPress:Me() end
-
-	ply:SetPData(key, value)
+	CommandPress:Me():SetPData(key, value)
 end
 
 nextIndex = 1
