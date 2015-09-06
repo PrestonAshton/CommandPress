@@ -79,7 +79,7 @@ function CommandPress:Remove(identifier)
 end
 
 
-function CommandPress:Add()
+function CommandPress:Add(identifier, callback)
 	hook.Call("CommandPressAdd")
 	CommandPress.Commands[identifier] = {identifier, callback}
 	concommand.Add("cmdPress_" .. identifier, function(ply, _, __, args)
