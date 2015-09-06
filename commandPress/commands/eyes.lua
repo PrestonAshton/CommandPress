@@ -28,15 +28,17 @@ CommandPress:Add("eyes", function(text)
     local entityInfo = ""
 
     if ent:IsPlayer() then
-      entityInfo = entityInfo .. " | Name: " .. targ:Nick() .. " | "
-      entityInfo = entityInfo .. " | Health: " .. targ:Health() .. " | "
-      entityInfo = entityInfo .. " | Armor: " .. targ:Armor() .. " | "
-      entityInfo = entityInfo .. " | Alive: " .. CommandPress:BoolToEnglish(targ:Alive()) .. " | "
-      entityInfo = entityInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)) .. " | "
-      entityInfo = entityInfo .. " | SteamID: " .. ttarg:SteamID() .. " / " .. targ:SteamID64() .. " | "
+      entityInfo = entityInfo .. " | Name: " .. ent:Nick() .. " | "
+      entityInfo = entityInfo .. " | Health: " .. ent:Health() .. " | "
+      entityInfo = entityInfo .. " | Armor: " .. ent:Armor() .. " | "
+      entityInfo = entityInfo .. " | Alive: " .. CommandPress:BoolToEnglish(ent:Alive()) .. " | "
+      entityInfo = entityInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(ent)) .. " | "
+      entityInfo = entityInfo .. " | SteamID: " .. ent:SteamID() .. " / " .. ent:SteamID64() .. " | "
       Say(entityInfo)
       return
     end
+
+		entityInfo = entityInfo .. " | Class Name: " .. ent:GetClass() .. " | "
 
     if (ent:IsWorld()) then
       entityInfo = entityInfo .. " | Model: World (" .. ent:GetModel() .. ") | "
@@ -63,6 +65,8 @@ CommandPress:Add("eyes", function(text)
       CommandPress:Print("SteamID: " .. ent:SteamID() .. " | " .. ent:SteamID64())
       return
     end
+
+		  CommandPress:Print("Class Name: " .. ent:GetClass())
 
     if (ent:IsWorld()) then
       CommandPress:Print("Model: World (" .. ent:GetModel() .. ")")
