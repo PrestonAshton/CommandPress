@@ -1,6 +1,13 @@
 CommandPress:Add("eyes", function(text)
 	local ent = CommandPress:Me():GetEyeTrace().Entity;
-	local owner = ent:CPPIGetOwner()
+
+	local owner = nil;
+
+	if (ent:CPPIGetOwner()) then
+		owner = ent:CPPIGetOwner()
+	else
+		owner = ent:GetOwner()
+	end
 
   local args = CommandPress:SplitText(text)
 

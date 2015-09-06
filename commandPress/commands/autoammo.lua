@@ -3,21 +3,38 @@ local function Setup()
   hook.Remove("Think", "autoAmmoTimer")
 end
 
+local function giveAmmo(concmdName, maxAmmo)
+  hook.Add("Think", "autoAmmoTimer", function()
+    local wep = CommandPress:Me():GetActiveWeapon()
+    if (!IsValid(wep)) then return end
+
+    if (CommandPress:Me():GetAmmoCount(wep:GetPrimaryAmmoType()) < maxAmmo) then
+      CommandPress:Me():ConCommand(concmdName) end
+  end)
+	CommandPress:SetData("chatCmdAutoAmmo", "true")
+  CommandPress:Print("Automatic ammo giving enabled!")
+end
+
 CommandPress:Add("autoammo", function(text)
 	if CommandPress:GetData("chatCmdAutoAmmo", "false") == "false" then
-		CommandPress:Print("Automatic ammo giving enabled!")
-		hook.Add("Think", "autoAmmoTimer", function()
-			local wep = CommandPress:Me():GetActiveWeapon()
-			if (!IsValid(wep)) then return end
+    if (aowl) then
+      giveAmmo("aowl giveammo", 9999)
+      return
+    elseif (ulx) then
+      if (ulx.ammo) then
+        giveAmmo("ulx ammo", 254)
+      elseif (ulx.giveammo) then
+        giveAmmo("ulx giveammo", 254)
+      elseif (ulx.infiniteammo) then
+        giveAmmo("ulx infiniteammo", 254)
+      end
+      return
+    end
 
-			if (CommandPress:Me():GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
-				CommandPress:Me():ConCommand("aowl giveammo") end
-		end)
-		CommandPress:SetData("chatCmdAutoAmmo", "true")
+    CommandPress:Print("Automatic ammo is not supported on this server!")
 	else
+    Setup()
 		CommandPress:Print("Automatic ammo giving disabled!")
-		hook.Remove("Think", "autoAmmoTimer")
-		CommandPress:SetData("chatCmdAutoAmmo", "false")
 	end
 end)
 
