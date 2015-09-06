@@ -1,4 +1,5 @@
 function CommandPress:ResolveName(name)
+	hook.Call("CommandPressResolveName")
 	 if not name then return nil end
 
 	 local players = player.GetAll()
@@ -17,10 +18,12 @@ function CommandPress:ResolveName(name)
 end
 
 function CommandPress:newLine()
+	hook.Call("CommandPressNewLine")
 	return "\n"
 end
 
 function CommandPress:Me()
+	hook.Call("CommandPressMe")
 	if (CommandPress.Implementation.Me == nil) then
 		CommandPress.Implementation.Me = LocalPlayer()
 	end
@@ -29,6 +32,7 @@ function CommandPress:Me()
 end
 
 function CommandPress:BoolToEnglish(toconvert)
+	hook.Call("CommandPressBoolToEnglish")
 	if (toconvert == false) then
 		return "No" end
 
@@ -36,6 +40,7 @@ function CommandPress:BoolToEnglish(toconvert)
 end
 
 function CommandPress:SplitText(text)
+	hook.Call("CommandPressSplitText")
 	local args = {}
 	for word in text:gmatch("%w+") do
 		table.insert(args, word)
@@ -45,6 +50,7 @@ function CommandPress:SplitText(text)
 end
 
 function CommandPress:IsAdmin(ply)
+	hook.Call("CommandPressIsAdmin")
 	if (ply:IsAdmin()) then
 		return true end
 
@@ -53,23 +59,28 @@ end
 
 function CommandPress:Print(text)
 	CommandPress:Me():PrintMessage(HUD_PRINTTALK, text)
+	hook.Call("CommandPressPrint")
 end
 
 function CommandPress:GetData(key, defualt)
+	hook.Call("CommandPressGetData")
 	return CommandPress:Me():GetPData(key, default)
 end
 
 function CommandPress:SetData(key, value, ply)
+	hook.Call("CommandPressSetData")
 	CommandPress:Me():SetPData(key, value)
 end
 
 function CommandPress:Remove(identifier)
 	CommandPress.Commands[identifier] = nil
 	concommand.Remove("cmdPress_" .. identifier)
+	hook.Call("CommandPressCommandRemoved")
 end
 
 
-function CommandPress:Add(identifier, callback)
+function CommandPress:Add()
+	hook.Call("CommandPressAdd")
 	CommandPress.Commands[identifier] = {identifier, callback}
 	concommand.Add("cmdPress_" .. identifier, function(ply, _, __, args)
 		local text = "!" .. identifier .. " " .. args;
@@ -77,11 +88,16 @@ function CommandPress:Add(identifier, callback)
 	end)
 end
 
+function CommandPress:Cleanup()
+	hook.Call("CommandPressCleanUp")
+end
+
 function CommandPress:Update()
+	hook.Call("CommandPressUpdate")
 	table.foreach(CommandPress.Commands, function(k, v)
 		CommandPress:Remove(k)
 	end)
 
-	hook.Call("CommandPressCleanUp")
+	CommandPress:Cleanup()
 	CommandPressSetup()
 end
