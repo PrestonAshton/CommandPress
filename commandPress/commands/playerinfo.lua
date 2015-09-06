@@ -25,7 +25,7 @@ CommandPress:Add("playerinfo", function(text)
       playerInfo = playerInfo .. " | Alive: " .. CommandPress:BoolToEnglish(targ:Alive()) .. " | "
       playerInfo = playerInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)) .. " | "
       playerInfo = playerInfo .. " | Model: " .. targ:GetModel() .. " | "
-      playerInfo = playerInfo .. " | SteamID: " .. ttarg:SteamID() .. " / " .. targ:SteamID64() .. " | "
+      playerInfo = playerInfo .. " | SteamID: " .. targ:SteamID() .. " / " .. targ:SteamID64() .. " | "
 
       Say(playerInfo)
     else

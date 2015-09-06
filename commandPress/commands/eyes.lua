@@ -48,7 +48,6 @@ CommandPress:Add("eyes", function(text)
     CommandPress:Print("I see...")
 
     if ent:IsPlayer() then
-      CommandPress:Print(playerInfoIntro)
       CommandPress:Print("Name: " .. targ:Nick())
       CommandPress:Print("Health: " .. targ:Health())
       CommandPress:Print("Armor: " .. targ:Armor())
