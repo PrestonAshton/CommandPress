@@ -1,4 +1,4 @@
 CommandPress:Add("kawaii", function(text)
-  Say(":zgparty:")
-  Say(":reah:")
+  CommandPress:Say(":zgparty:")
+  CommandPress:Say(":reah:")
 end)

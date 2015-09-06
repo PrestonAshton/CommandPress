@@ -17,7 +17,7 @@ CommandPress:Add("playerinfo", function(text)
 
   if (IsValid(targ)) then
     if (aloud) then
-      Say(playerInfoIntro)
+      CommandPress:Say(playerInfoIntro)
       local playerInfo = ""
       playerInfo = playerInfo .. " | Name: " .. targ:Nick() .. " | "
       playerInfo = playerInfo .. " | Health: " .. targ:Health() .. " | "
@@ -27,7 +27,7 @@ CommandPress:Add("playerinfo", function(text)
       playerInfo = playerInfo .. " | Model: " .. targ:GetModel() .. " | "
       playerInfo = playerInfo .. " | SteamID: " .. targ:SteamID() .. " / " .. targ:SteamID64() .. " | "
 
-      Say(playerInfo)
+      CommandPress:Say(playerInfo)
     else
       CommandPress:Print(playerInfoIntro)
       CommandPress:Print("Name: " .. targ:Nick())

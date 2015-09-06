@@ -6,7 +6,7 @@ CommandPress:Add("info", function(text)
   local aloud = false
 
   if (string.lower(args[2]) == "aloud") then
-    PrintFunc = function(text) Say(text) end
+    PrintFunc = function(text) CommandPress:Say(text) end
     aloud = true
   else
     PrintFunc = function(text) CommandPress:Print(text) end

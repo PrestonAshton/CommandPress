@@ -23,7 +23,7 @@ CommandPress:Add("eyes", function(text)
 
   if aloud then
 
-    Say("I see...")
+    CommandPress:Say("I see...")
 
     local entityInfo = ""
 
@@ -34,7 +34,7 @@ CommandPress:Add("eyes", function(text)
       entityInfo = entityInfo .. " | Alive: " .. CommandPress:BoolToEnglish(ent:Alive()) .. " | "
       entityInfo = entityInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(ent)) .. " | "
       entityInfo = entityInfo .. " | SteamID: " .. ent:SteamID() .. " / " .. ent:SteamID64() .. " | "
-      Say(entityInfo)
+      CommandPress:Say(entityInfo)
       return
     end
 
@@ -52,7 +52,7 @@ CommandPress:Add("eyes", function(text)
       entityInfo = entityInfo .. " | Owner: " .. GetHostName() .. " | "
     end
 
-    Say(entityInfo)
+    CommandPress:Say(entityInfo)
   else
     CommandPress:Print("I see...")
 

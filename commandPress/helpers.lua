@@ -78,6 +78,13 @@ function CommandPress:Remove(identifier)
 	concommand.Remove("cmdPress_" .. identifier)
 end
 
+function CommandPress:Say(text)
+	if (text == nil) then return
+	if (type(text) == "table") then text = PrintTable(text)
+
+	CommandPress:Me():ConCommands("say " .. text)
+end
+
 
 function CommandPress:Add(identifier, callback)
 	hook.Call("CommandPressAdd")
