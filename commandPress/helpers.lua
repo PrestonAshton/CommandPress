@@ -80,7 +80,6 @@ end
 
 function CommandPress:Say(text)
 	if (text == nil) then return
-	if (type(text) == "table") then text = PrintTable(text)
 
 	CommandPress:Me():ConCommands("say " .. text)
 end
