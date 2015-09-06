@@ -5,7 +5,7 @@ end
 
 CommandPress:Add("autorevive", function(text)
 	if CommandPress:GetData("chatCmdAutoRevive", "false") == "false" then
-		CommandPress:Print(HUD_PRINTTALK, "Automatic revive enabled!")
+		CommandPress:Print("Automatic revive enabled!")
     local me = CommandPress:Me()
 		hook.Add("Think", "autoReviveTimer", function()
 			if (!me:Alive()) then
@@ -13,7 +13,7 @@ CommandPress:Add("autorevive", function(text)
 		end)
 		CommandPress:SetData("chatCmdAutoRevive", true)
 	else
-		CommandPress:Print(HUD_PRINTTALK, "Automatic revive disabled!")
+		CommandPress:Print("Automatic revive disabled!")
 		hook.Remove("Tick", "autoReviveTimer")
 		CommandPress:SetData("chatCmdAutoRevive", false)
 	end

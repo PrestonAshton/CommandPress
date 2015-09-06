@@ -1,4 +1,3 @@
 CommandPress:Add("update", function(text)
-	hook.Call("CommandPressCleanUp")
-  CommandPressSetup()
+	CommnandPress:Update()
 end)

@@ -49,10 +49,25 @@ function CommandPress:SetData(key, value, ply)
 	CommandPress:Me():SetPData(key, value)
 end
 
+function CommandPress:Remove(identifier)
+	CommandPress.Commands[identifier] = nil
+	concommand.Remove("cmdPress_" .. identifier)
+end
+
+
 function CommandPress:Add(identifier, callback)
 	CommandPress.Commands[identifier] = {identifier, callback}
 	concommand.Add("cmdPress_" .. identifier, function(ply, _, __, args)
 		local text = "!" .. identifier .. " " .. args;
-		CommandPress.Commands[identifier][2](ply, text)
+		CommandPress.Commands[identifier][2](text)
 	end)
+end
+
+function CommandPress:Update()
+	for _,v in pairs(CommandPress:Commands) do
+		CommandPress:Remove(v.identifier)
+	end
+
+	hook.Call("CommandPressCleanUp")
+	CommandPressSetup()
 end
