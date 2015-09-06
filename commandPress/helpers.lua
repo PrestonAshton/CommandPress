@@ -1,5 +1,19 @@
 function CommandPress:ResolveName(name)
-	 return easylua.FindEntity(name)
+	 if not name then return nil end
+
+	 local players = player.GetAll()
+
+	 for k, v in pairs(players) do
+		 if (tonumber(name) == v:UserID()) then
+			 return v
+		 end
+	 end
+
+	 for k, v in pairs(players) do
+		 if (string.find(string.lower(v:Nick()), string.lower(tostring(name))) ~= nil) then
+			 return v
+		 end
+	 end
 end
 
 function CommandPress:newLine()
