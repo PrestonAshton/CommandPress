@@ -11,7 +11,7 @@ function CommandPress:ResolveName(name)
 	 end
 
 	 for k, v in pairs(players) do
-		 if (string.find(string.lower(v:Nick()), string.lower(tostring(name))) ~= nil) then
+		 if (string.find(string.lower(v:Nick()), string.lower(tostring(name))) != nil) then
 			 return v
 		 end
 	 end
