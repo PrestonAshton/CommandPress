@@ -1,4 +1,4 @@
-hook.Add("PlayerSay", "commandRecogniserHook", function(ply, text)
+hook.Add("OnPlayerChat", "commandRecogniserHook", function(ply, text, teamChat, dead)
 	local args = {}
 	local nextIndex = 1
 
@@ -13,7 +13,10 @@ hook.Add("PlayerSay", "commandRecogniserHook", function(ply, text)
 
 			if (command[2]) then
 				timer.Simple(0, function() command[2](text) end );
+				return true
 			end
 		end
 	end
+
+	return false
 end)
