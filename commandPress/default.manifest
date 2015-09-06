@@ -1,5 +1,5 @@
-helpers.lua
 cl_init.lua
+helpers.lua
 commands/annoy.lua
 commands/anhero.lua
 commands/update.lua
