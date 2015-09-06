@@ -48,12 +48,12 @@ CommandPress:Add("eyes", function(text)
     CommandPress:Print("I see...")
 
     if ent:IsPlayer() then
-      CommandPress:Print("Name: " .. targ:Nick())
-      CommandPress:Print("Health: " .. targ:Health())
-      CommandPress:Print("Armor: " .. targ:Armor())
-      CommandPress:Print("Alive: " .. CommandPress:BoolToEnglish(targ:Alive()))
-      CommandPress:Print("Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)))
-      CommandPress:Print("SteamID: " .. targ:SteamID() .. " | " .. targ:SteamID64())
+      CommandPress:Print("Name: " .. ent:Nick())
+      CommandPress:Print("Health: " .. ent:Health())
+      CommandPress:Print("Armor: " .. ent:Armor())
+      CommandPress:Print("Alive: " .. CommandPress:BoolToEnglish(ent:Alive()))
+      CommandPress:Print("Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(ent)))
+      CommandPress:Print("SteamID: " .. ent:SteamID() .. " | " .. ent:SteamID64())
       return
     end
 
