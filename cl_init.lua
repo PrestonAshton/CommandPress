@@ -2,7 +2,8 @@ function CommandPressSetup()
 
   CommandPress = {
     Commands = {},
-    Helpers = {}, Version = 0.4,
+    Helpers = {},
+    Version = 0.4,
     BaseURL = "https://raw.githubusercontent.com/PrestonAshton/CommandPress/master/commandPress/",
     Implementation = {
       Me = nil

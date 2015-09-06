@@ -73,9 +73,9 @@ function CommandPress:SetData(key, value, ply)
 end
 
 function CommandPress:Remove(identifier)
+	hook.Call("CommandPressCommandRemove")
 	CommandPress.Commands[identifier] = nil
 	concommand.Remove("cmdPress_" .. identifier)
-	hook.Call("CommandPressCommandRemoved")
 end
 
 
