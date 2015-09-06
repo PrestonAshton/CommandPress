@@ -64,7 +64,7 @@ function CommandPress:Add(identifier, callback)
 end
 
 function CommandPress:Update()
-	for _,v in pairs(CommandPress:Commands) do
+	for _,v in pairs(CommandPress.Commands) do
 		CommandPress:Remove(v.identifier)
 	end
 
