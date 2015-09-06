@@ -66,7 +66,7 @@ end
 function CommandPress:Update()
 	table.foreach(CommandPress.Commands, function(k, v)
 		CommandPress:Remove(k)
-	end
+	end)
 
 	hook.Call("CommandPressCleanUp")
 	CommandPressSetup()
