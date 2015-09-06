@@ -22,7 +22,6 @@ end
 CommandPress:Add("wallhax", function(text)
 	if CommandPress:GetData("chatCmdWallHax", "false") == "false" then
       local args = CommandPress:SplitText(text)
-      CommandPress:Print(args[2])
       addHalos(args[2])
 	else
     CommandPress:Print("Über Hax disabled!")
