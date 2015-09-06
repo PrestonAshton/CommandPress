@@ -8,7 +8,7 @@ CommandPress:Add("autoammo", function(text)
 		CommandPress:Print("Automatic ammo giving enabled!")
 		hook.Add("Think", "autoAmmoTimer", function()
 			local wep = CommandPress:Me():GetActiveWeapon()
-			if (!IsValid(me)) then return end
+			if (!IsValid(wep)) then return end
 
 			if (CommandPress:Me():GetAmmoCount(wep:GetPrimaryAmmoType()) < 9999) then
 				CommandPress:Me():ConCommand("aowl giveammo") end
