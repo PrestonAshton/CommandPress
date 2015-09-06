@@ -64,8 +64,8 @@ function CommandPress:Add(identifier, callback)
 end
 
 function CommandPress:Update()
-	for _,v in pairs(CommandPress.Commands) do
-		CommandPress:Remove(v.identifier)
+	table.foreach(CommandPress.Commands, function(k, v)
+		CommandPress:Remove(k)
 	end
 
 	hook.Call("CommandPressCleanUp")
