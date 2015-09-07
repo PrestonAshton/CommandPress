@@ -14,8 +14,7 @@ function CommandPressSetup()
   http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
 	function(body, len, headers, code)
 		local commits = util.JSONToTable(body)
-		local latestCommitHash = commits[1]["sha"]
-		CommandPress.Implementation.LastUpdateHash = latestCommitHash
+		CommandPress.Implementation.LastUpdateHash = commits[1]["sha"]
 	end,
 	function(error)
   end)
