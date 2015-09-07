@@ -57,6 +57,15 @@ function CommandPress:IsAdmin(ply)
 	return false
 end
 
+function CommandPress:CheckForUpdate()
+	http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
+	function(body, len, headers, code)
+		testCommits = util.JSONToTable(body)
+		--CommandPress.Implementation.LastUpdateHash = util.J
+	end,
+	function(error)	end)
+end
+
 function CommandPress:Print(text)
 	CommandPress:Me():PrintMessage(HUD_PRINTTALK, text)
 	hook.Call("CommandPressPrint")
