@@ -5,7 +5,10 @@ end
 
 Setup()
 
-CommandPress:Add("anhero", function(text)
+CommandPress:Add("anhero", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
+
 	if CommandPress:GetData("chatCmdAnHero", "false") == "false" then
 		CommandPress:Print("You are an hero")
 

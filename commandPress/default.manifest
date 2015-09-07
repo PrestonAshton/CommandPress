@@ -10,3 +10,4 @@ commands/info.lua
 commands/playerinfo.lua
 commands/eyes.lua
 commands/kawaii.lua
+commands/ping.lua

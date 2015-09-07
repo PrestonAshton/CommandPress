@@ -1,4 +1,6 @@
-CommandPress:Add("playerinfo", function(text)
+CommandPress:Add("playerinfo", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
 
   local args = CommandPress:SplitText(text)
 

@@ -13,7 +13,10 @@ local function revive(conCmdName)
   CommandPress:Print("Automatic revive enabled!")
 end
 
-CommandPress:Add("autorevive", function(text)
+CommandPress:Add("autorevive", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
+
 	if CommandPress:GetData("chatCmdAutoRevive", "false") == "false" then
     if (aowl) then
       revive("aowl revive")

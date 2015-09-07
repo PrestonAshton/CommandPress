@@ -19,7 +19,10 @@ local function addHalos(entityName)
   CommandPress:SetData("chatCmdWallHax", "true")
 end
 
-CommandPress:Add("wallhax", function(text)
+CommandPress:Add("wallhax", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
+
 	if CommandPress:GetData("chatCmdWallHax", "false") == "false" then
       local args = CommandPress:SplitText(text)
       addHalos(args[2])

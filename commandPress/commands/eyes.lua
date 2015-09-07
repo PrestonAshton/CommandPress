@@ -1,4 +1,7 @@
-CommandPress:Add("eyes", function(text)
+CommandPress:Add("eyes", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
+
 	local ent = CommandPress:Me():GetEyeTrace().Entity;
 
 	local owner = nil;

@@ -15,7 +15,10 @@ local function giveAmmo(concmdName, maxAmmo)
   CommandPress:Print("Automatic ammo giving enabled!")
 end
 
-CommandPress:Add("autoammo", function(text)
+CommandPress:Add("autoammo", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
+
 	if CommandPress:GetData("chatCmdAutoAmmo", "false") == "false" then
     if (aowl) then
       giveAmmo("aowl giveammo", 9999)

@@ -1,4 +1,6 @@
-CommandPress:Add("info", function(text)
+CommandPress:Add("info", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
 
   local args = CommandPress:SplitText(text)
 

@@ -4,7 +4,10 @@ end
 
 Setup()
 
-CommandPress:Add("annoy", function(text)
+CommandPress:Add("annoy", function(text, ply)
+
+  if (ply ~= CommandPress:Me()) then return end
+
 	if CommandPress:GetData("chatCmdAnnoyOn", "false") == "false" then
 		local targ = CommandPress:ResolveName(string.sub(text,8))
 
