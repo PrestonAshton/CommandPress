@@ -2,12 +2,23 @@ function CommandPressSetup()
 
   CommandPress = {
     Commands = {},
-    Helpers = {}, Version = 0.4,
+    Helpers = {},
+    Version = 0.4,
     BaseURL = "https://raw.githubusercontent.com/PrestonAshton/CommandPress/master/commandPress/",
     Implementation = {
-      Me = nil
+      Me = nil,
+      LastUpdateHash = nil
     },
   }
+
+  http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
+	function(body, len, headers, code)
+		local commits = util.JSONToTable(body)
+		local latestCommitHash = commits[1]["sha"]
+		CommandPress.Implementation.LastUpdateHash = latestCommitHash
+	end,
+	function(error)
+  end)
 
   local me = LocalPlayer()
 

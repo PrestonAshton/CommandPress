@@ -66,7 +66,6 @@ function CommandPress:CheckForUpdate()
 			CommandPress:Print("New update found!")
 			CommandPress:Print("Update commit log: " .. commits[1]["commit"]["message"])
 			CommandPress:Print("Downloading update and running...")
-			CommandPress.Implementation.LastUpdateHash = latestCommitHash
 			CommandPress:Update()
 		end
 	end,
