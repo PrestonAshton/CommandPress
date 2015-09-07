@@ -79,11 +79,10 @@ function CommandPress:Remove(identifier)
 end
 
 function CommandPress:Say(text)
-	if (text == nil) then return
+	if (text == nil) then return end
 
 	CommandPress:Me():ConCommands("say " .. text)
 end
-
 
 function CommandPress:Add(identifier, callback)
 	hook.Call("CommandPressAdd")
@@ -100,12 +99,11 @@ end
 
 function CommandPress:Update()
 	hook.Call("CommandPressUpdate")
-	
+
 	table.foreach(CommandPress.Commands, function(k, v)
 		CommandPress:Remove(k)
 	end)
 
 	CommandPress:Cleanup()
 	CommandPressSetup()
-	end
 end
