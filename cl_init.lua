@@ -16,7 +16,7 @@ function CommandPressSetup()
   http.Fetch(CommandPress.BaseURL .. "default.manifest", function(body, len, headers, code)
   	local lines = string.Explode("\n", body, false)
   	for i = 1,#lines do
-  	  if (lines[i] != "") then
+  	  if (lines[i] ~= "") then
   	  http.Fetch(CommandPress.BaseURL .. lines[i],
   		    function(body, len, headers, code)
   			    RunStringEx(body, "CommandPress - " .. CommandPress.BaseURL .. lines[i])

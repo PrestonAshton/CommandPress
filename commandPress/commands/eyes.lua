@@ -13,7 +13,7 @@ CommandPress:Add("eyes", function(text)
 
   local aloud = false
 
-  if (args[2] != nil) then
+  if (args[2] ~= nil) then
     if (string.lower(args[2]) == "aloud") then
       aloud = true
     end

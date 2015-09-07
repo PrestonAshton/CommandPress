@@ -5,7 +5,7 @@ CommandPress:Add("playerinfo", function(text)
   local PrintFunc
   local aloud = false
 
-  if (args[3] != nil) then
+  if (args[3] ~= nil) then
     if (string.lower(args[3]) == "aloud") then
       aloud = true
     end
