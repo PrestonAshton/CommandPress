@@ -11,14 +11,6 @@ function CommandPressSetup()
     },
   }
 
-  http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
-	function(body, len, headers, code)
-		local commits = util.JSONToTable(body)
-		CommandPress.Implementation.LastUpdateHash = commits[1]["sha"]
-	end,
-	function(error)
-  end)
-
   local me = LocalPlayer()
 
   me:PrintMessage(HUD_PRINTTALK, "Initialising CommandPress by Preston - Version " .. CommandPress.Version)
@@ -44,6 +36,14 @@ function CommandPressSetup()
   function(error)
   	me:PrintMessage(HUD_PRINTTALK, error)
   	return
+  end)
+
+  http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
+  function(body, len, headers, code)
+    local commits = util.JSONToTable(body)
+    CommandPress.Implementation.LastUpdateHash = commits[1]["sha"]
+  end,
+  function(error)
   end)
 
 end
