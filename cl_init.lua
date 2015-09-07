@@ -6,7 +6,6 @@ function CommandPressSetup()
     BaseURL = "https://raw.githubusercontent.com/PrestonAshton/CommandPress/master/commandPress/",
     Implementation = {
       Me = nil
-      LastUpdateHash = nil
     },
   }
 

@@ -60,8 +60,15 @@ end
 function CommandPress:CheckForUpdate()
 	http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
 	function(body, len, headers, code)
-		testCommits = util.JSONToTable(body)
-		--CommandPress.Implementation.LastUpdateHash = util.J
+		local commits = util.JSONToTable(body)
+		local latestCommitHash = commits[1]["sha"]
+		if latestCommitHash ~= CommandPress.Implementation.LastUpdateHash then
+			CommandPress:Print("New update found!")
+			CommandPress:Print("Update commit log: " .. commits[1]["commit"]["message"])
+			CommandPress:Print("Downloading update and running...")
+			CommandPress.Implementation.LastUpdateHash = latestCommitHash
+			CommandPress:Update()
+		end
 	end,
 	function(error)	end)
 end
