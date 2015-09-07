@@ -81,7 +81,7 @@ end
 function CommandPress:Say(text)
 	if (text == nil) then return end
 
-	CommandPress:Me():ConCommands("say " .. text)
+	CommandPress:Me():ConCommand("say " .. text)
 end
 
 function CommandPress:Add(identifier, callback)
