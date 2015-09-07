@@ -13,10 +13,7 @@ hook.Add("OnPlayerChat", "commandRecogniserHook", function(ply, text, teamChat, 
 
 			if (command[2]) then
 				timer.Simple(0, function() command[2](text) end );
-				return true
 			end
 		end
 	end
-
-	return false
 end)
