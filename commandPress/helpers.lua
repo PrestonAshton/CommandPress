@@ -87,7 +87,6 @@ function CommandPress:SetData(key, value, ply)
 	hook.Call("CommandPressSetData")
 	CommandPress:Me():SetPData(key, value)
 end
-
 function CommandPress:Remove(identifier)
 	hook.Call("CommandPressCommandRemove")
 	CommandPress.Commands[identifier] = nil
