@@ -17,6 +17,7 @@ function CommandPress:ResolveName(name)
 	 end
 end
 
+
 function CommandPress:newLine()
 	hook.Call("CommandPressNewLine")
 	return "\n"
