@@ -57,6 +57,7 @@ function CommandPress:IsAdmin(ply)
 	return false
 end
 
+
 function CommandPress:CheckForUpdate()
 	http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
 	function(body, len, headers, code)
