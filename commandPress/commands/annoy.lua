@@ -1,6 +1,6 @@
 local function Setup()
 	CommandPress:SetData("chatCmdAnnoyAnnoying", "")
-	hook.Remove("annoyHook")
+	hook.Remove("Think", "annoyHook")
 	CommandPress:SetData("chatCmdAnnoyOn", "false")
 end
 
