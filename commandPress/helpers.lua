@@ -96,7 +96,7 @@ end
 function CommandPress:Say(text)
 	if (text == nil) then return end
 
-	CommandPress:Me():ConCommand("say " .. text)
+	timer.Simple(0, function() CommandPress:Me():ConCommand("say " .. text) end)
 end
 
 function CommandPress:Add(identifier, callback)
