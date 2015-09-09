@@ -1,5 +1,7 @@
 local function Setup()
-	CommandPress:SetData("chatCmdAnnoyOn",  "false")
+	CommandPress:SetData("chatCmdAnnoyAnnoying", "")
+	hook.Remove("annoyHook")
+	CommandPress:SetData("chatCmdAnnoyOn", "false")
 end
 
 Setup()
@@ -22,9 +24,7 @@ CommandPress:Add("annoy", function(text, ply)
 		end
 	else
 		CommandPress:Print("Stopped getting on the nerves of: " .. CommandPress:GetData("chatCmdAnnoyAnnoying"))
-		CommandPress:SetData("chatCmdAnnoyAnnoying", "")
-		hook.Remove("annoyHook")
-		CommandPress:SetData("chatCmdAnnoyOn", "false")
+		Setup()
 	end
 end)
 

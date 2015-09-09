@@ -16,13 +16,13 @@ function CommandPressSetup()
   me:PrintMessage(HUD_PRINTTALK, "Initialising CommandPress by Preston - Version " .. CommandPress.Version)
 
 
-    http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
-    function(body, len, headers, code)
-      local commits = util.JSONToTable(body)
-      CommandPress.Implementation.LastUpdateHash = commits[1]["sha"]
-    end,
-    function(error)
-    end)
+  http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
+  function(body, len, headers, code)
+    local commits = util.JSONToTable(body)
+    CommandPress.Implementation.LastUpdateHash = commits[1]["sha"]
+  end,
+  function(error)
+  end)
 
   http.Fetch(CommandPress.BaseURL .. "default.manifest", function(body, len, headers, code)
   	local lines = string.Explode("\n", body, false)
