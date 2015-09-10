@@ -57,16 +57,16 @@ function CommandPress:IsAdmin(ply)
 	return false
 end
 
-
 function CommandPress:CheckForUpdate()
 	http.Fetch("https://api.github.com/repos/PrestonAshton/CommandPress/commits",
 	function(body, len, headers, code)
 		local commits = util.JSONToTable(body)
 		local latestCommitHash = commits[1]["sha"]
 		if latestCommitHash ~= CommandPress.Implementation.LastUpdateHash then
-			CommandPress:Say("New update found!")
-			CommandPress:Say("Update commit log: " .. commits[1]["commit"]["message"])
-			CommandPress:Say("Downloading update and running...")
+			CommandPress:Say("New update found! Commit title: " .. commits[1]["commit"]["message"])
+			CommandPress:Print("New update found!")
+			CommandPress:Print("Update commit log: " .. commits[1]["commit"]["message"])
+			CommandPress:Print("Downloading update and running...")
 			CommandPress:Update()
 		end
 	end,
