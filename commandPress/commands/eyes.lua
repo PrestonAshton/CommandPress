@@ -32,7 +32,7 @@ CommandPress:Add("eyes", function(text, ply)
 
     if ent:IsPlayer() then
       entityInfo = entityInfo .. "Name: " .. ent:Nick() .. "|"
-      entityInfo = entityInfo .. "Health: " .. ent:Health() .. " |"
+      entityInfo = entityInfo .. "Health: " .. ent:Health() .. "|"
       entityInfo = entityInfo .. "Armor: " .. ent:Armor() .. "|"
       entityInfo = entityInfo .. "Alive: " .. CommandPress:BoolToEnglish(ent:Alive()) .. "|"
       entityInfo = entityInfo .. "Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(ent)) .. "|"

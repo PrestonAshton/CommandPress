@@ -26,7 +26,7 @@ CommandPress:Add("playerinfo", function(text, ply)
       playerInfo = playerInfo .. "Armor: " .. targ:Armor() .. "|"
       playerInfo = playerInfo .. "Alive: " .. CommandPress:BoolToEnglish(targ:Alive()) .. "|"
       playerInfo = playerInfo .. "Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)) .. "|"
-      playerInfo = playerInfo .. "Model: " .. targ:GetModel() .. "| "
+      playerInfo = playerInfo .. "Model: " .. targ:GetModel() .. "|"
       playerInfo = playerInfo .. "SteamID: " .. targ:SteamID() .. " / " .. targ:SteamID64() .. "|"
 
       CommandPress:Say(playerInfo)
