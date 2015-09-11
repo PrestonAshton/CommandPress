@@ -26,7 +26,7 @@ CommandPress:Add("eyes", function(text, ply)
 
   if aloud then
 
-    CommandPress:Say("I see...")
+    --CommandPress:Say("I see...")
 
     local entityInfo = ""
 
