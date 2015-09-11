@@ -15,8 +15,6 @@ CommandPress:Add("playerinfo", function(text, ply)
 
   local targ = CommandPress:ResolveName(args[2])
 
-  local playerInfoIntro = "Player info for " .. targ:Name() .. ":"
-
   if (IsValid(targ)) then
     if (aloud) then
       CommandPress:Say(playerInfoIntro)
