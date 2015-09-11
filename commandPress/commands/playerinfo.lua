@@ -21,13 +21,13 @@ CommandPress:Add("playerinfo", function(text, ply)
     if (aloud) then
       CommandPress:Say(playerInfoIntro)
       local playerInfo = ""
-      playerInfo = playerInfo .. " | Name: " .. targ:Nick() .. " | "
-      playerInfo = playerInfo .. " | Health: " .. targ:Health() .. " | "
-      playerInfo = playerInfo .. " | Armor: " .. targ:Armor() .. " | "
-      playerInfo = playerInfo .. " | Alive: " .. CommandPress:BoolToEnglish(targ:Alive()) .. " | "
-      playerInfo = playerInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)) .. " | "
-      playerInfo = playerInfo .. " | Model: " .. targ:GetModel() .. " | "
-      playerInfo = playerInfo .. " | SteamID: " .. targ:SteamID() .. " / " .. targ:SteamID64() .. " | "
+      playerInfo = playerInfo .. "Name: " .. targ:Nick() .. "|"
+      playerInfo = playerInfo .. "Health: " .. targ:Health() .. "|"
+      playerInfo = playerInfo .. "Armor: " .. targ:Armor() .. "|"
+      playerInfo = playerInfo .. "Alive: " .. CommandPress:BoolToEnglish(targ:Alive()) .. "|"
+      playerInfo = playerInfo .. "Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(targ)) .. "|"
+      playerInfo = playerInfo .. "Model: " .. targ:GetModel() .. "| "
+      playerInfo = playerInfo .. "SteamID: " .. targ:SteamID() .. " / " .. targ:SteamID64() .. "|"
 
       CommandPress:Say(playerInfo)
     else

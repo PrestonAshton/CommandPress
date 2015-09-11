@@ -31,28 +31,28 @@ CommandPress:Add("eyes", function(text, ply)
     local entityInfo = ""
 
     if ent:IsPlayer() then
-      entityInfo = entityInfo .. " | Name: " .. ent:Nick() .. " | "
-      entityInfo = entityInfo .. " | Health: " .. ent:Health() .. " | "
-      entityInfo = entityInfo .. " | Armor: " .. ent:Armor() .. " | "
-      entityInfo = entityInfo .. " | Alive: " .. CommandPress:BoolToEnglish(ent:Alive()) .. " | "
-      entityInfo = entityInfo .. " | Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(ent)) .. " | "
-      entityInfo = entityInfo .. " | SteamID: " .. ent:SteamID() .. " / " .. ent:SteamID64() .. " | "
+      entityInfo = entityInfo .. "Name: " .. ent:Nick() .. "|"
+      entityInfo = entityInfo .. "Health: " .. ent:Health() .. " |"
+      entityInfo = entityInfo .. "Armor: " .. ent:Armor() .. "|"
+      entityInfo = entityInfo .. "Alive: " .. CommandPress:BoolToEnglish(ent:Alive()) .. "|"
+      entityInfo = entityInfo .. "Admin: " .. CommandPress:BoolToEnglish(CommandPress:IsAdmin(ent)) .. "|"
+      entityInfo = entityInfo .. "SteamID: " .. ent:SteamID() .. " / " .. ent:SteamID64() .. "|"
       CommandPress:Say(entityInfo)
       return
     end
 
-		entityInfo = entityInfo .. " | Class Name: " .. ent:GetClass() .. " | "
+		entityInfo = entityInfo .. "Class Name: " .. ent:GetClass() .. "|"
 
     if (ent:IsWorld()) then
-      entityInfo = entityInfo .. " | Model: World (" .. ent:GetModel() .. ") | "
+      entityInfo = entityInfo .. "Model: World (" .. ent:GetModel() .. ")|"
     else
-      entityInfo = entityInfo .. " | Model: " .. ent:GetModel() .. " | "
+      entityInfo = entityInfo .. "Model: " .. ent:GetModel() .. "|"
     end
 
     if IsValid(owner) then
-      entityInfo = entityInfo .. " | Owner: " .. owner:Nick() .. " / " .. owner:SteamID() .. " | "
+      entityInfo = entityInfo .. "Owner: " .. owner:Nick() .. " / " .. owner:SteamID() .. "|"
     else
-      entityInfo = entityInfo .. " | Owner: " .. GetHostName() .. " | "
+      entityInfo = entityInfo .. "Owner: " .. GetHostName() .. "|"
     end
 
     CommandPress:Say(entityInfo)
