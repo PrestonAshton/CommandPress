@@ -18,6 +18,6 @@ CommandPress:Add("fakeping", function(text, ply)
 	end
 end)
 
-hook.Add("CommandPressCleanUp", "CleanAnHero", function()
+hook.Add("CommandPressCleanUp", "CleanFakePing", function()
   Setup()
 end)
