@@ -15,3 +15,4 @@ commands/bunnyhop.lua
 commands/fakeping.lua
 commands/disconnect.lua
 commands/quit.lua
+commands/refreshgame.lua
