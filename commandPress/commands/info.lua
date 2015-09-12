@@ -4,20 +4,18 @@ CommandPress:Add("info", function(text, ply)
 
   local args = CommandPress:SplitText(text)
 
-  local PrintFunc
   local aloud = false
 
   if (args[2] and string.lower(args[2]) == "aloud") then
-    PrintFunc = function(text) CommandPress:Say(text) end
     aloud = true
   else
-    PrintFunc = function(text) CommandPress:Print(text) end
+    aloud = false
   end
 
-	PrintFunc("CommandPress by Preston - Version " .. CommandPress.Version)
-	PrintFunc("Currently loaded commands: ")
   if (aloud) then
     local commandList = ""
+    commandList = commandList .. "CommandPress by Preston - Version " .. CommandPress.Version .. " |"
+    commandList = commandList .. "Current Commands: \n"
     local first = true
     for k,v in pairs(CommandPress.Commands) do
       if first then
@@ -28,10 +26,13 @@ CommandPress:Add("info", function(text, ply)
       first = false
     end
     commandList = commandList .. "."
-    PrintFunc(commandList)
+    CommandPress:Say(commandList)
   else
+    CommandPress:Print("CommandPress by Preston - Version " .. CommandPress.Version)
+  	CommandPress:Print("Currently loaded commands: ")
+
     for k,v in pairs(CommandPress.Commands) do
-      PrintFunc(v[1])
+      CommandPress:Print(v[1])
     end
   end
 end)

@@ -6,7 +6,7 @@ end
 local function giveAmmo(concmdName, maxAmmo)
   hook.Add("Think", "autoAmmoTimer", function()
     local wep = CommandPress:Me():GetActiveWeapon()
-    if (!IsValid(wep)) then return end
+    if (not IsValid(wep)) then return end
 
     if (CommandPress:Me():GetAmmoCount(wep:GetPrimaryAmmoType()) < maxAmmo) then
       CommandPress:Me():ConCommand(concmdName) end
