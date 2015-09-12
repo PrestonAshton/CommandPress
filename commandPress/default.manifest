@@ -13,3 +13,5 @@ commands/eyes.lua
 commands/ping.lua
 commands/bunnyhop.lua
 commands/fakeping.lua
+commands/disconnect.lua
+commands/quit.lua
