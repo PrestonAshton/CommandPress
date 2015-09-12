@@ -2,6 +2,7 @@ local function Setup()
   hook.Remove("Think", "cmdPressBunnyHopHook")
   timer.Remove("cmdPressBunnyhopTimer")
   CommandPress:SetData("cmdPressBunnyHop", "false")
+  RunConsoleCommand("-jump")
 end
 
 CommandPress:Add("bhop", function(text, ply)
@@ -10,10 +11,7 @@ CommandPress:Add("bhop", function(text, ply)
   if (CommandPress:GetData("cmdPressBunnyHop", "false") == "false") then
     hook.Add("Think", "cmdPressBunnyHopHook", function()
       if input.IsKeyDown(KEY_SPACE) then
-          ply:ConCommand("+jump")
-          timer.Create("cmdPressBunnyhopTimer", 0, 0.01, function()
-            ply:ConCommand("-jump")
-          end)
+          RunConsoleCommand(((LocalPlayer():IsOnGround() or LocalPlayer():WaterLevel() > 0) and "+" or "-").."jump")
       end
     end)
     CommandPress:SetData("cmdPressBunnyHop", "true")
