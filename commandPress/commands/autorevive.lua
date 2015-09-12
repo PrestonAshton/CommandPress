@@ -6,7 +6,7 @@ end
 local function revive(conCmdName)
   local me = CommandPress:Me()
   hook.Add("Think", "autoReviveTimer", function()
-    if (!me:Alive()) then
+    if (not me:Alive()) then
       me:ConCommand(conCmdName) end
   end)
   CommandPress:SetData("chatCmdAutoRevive", true)
