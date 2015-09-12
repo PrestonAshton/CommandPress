@@ -63,7 +63,6 @@ function CommandPress:CheckForUpdate()
 		local commits = util.JSONToTable(body)
 		local latestCommitHash = commits[1]["sha"]
 		if latestCommitHash ~= CommandPress.Implementation.LastUpdateHash then
-			CommandPress:Say("New update found! Commit title: " .. commits[1]["commit"]["message"])
 			CommandPress:Print("New update found!")
 			CommandPress:Print("Update commit log: " .. commits[1]["commit"]["message"])
 			CommandPress:Print("Downloading update and running...")
